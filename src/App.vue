@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <carousel
-          :items="item.slides"
+          :items="slides"
           :loop="true"
           :infinite="true"
           :slidesToShow="isMobile ? 1 : 3"
@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      images: [
+      slides: [
         {
           title: 'The best image1',
           src: './src/assets/images/sports.1.jpg',
