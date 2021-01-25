@@ -3,17 +3,31 @@
     <section class="section">
       <div class="container">
         <carousel
-            :items="images"
-            :loop="true"
-            :infinite="true"
-            :slidesToShow="3"
-            :slidesToScroll="1"
-            :pagination="false"
-            :navigation="false"
-            :navigationSwipe="true"
-            :autoplay="true"
-            :breakpoints="[]"
+          :items="item.slides"
+          :loop="true"
+          :infinite="true"
+          :slidesToShow="isMobile ? 1 : 3"
+          :slidesToScroll="1"
+          :pagination="false"
+          :navigation="false"
+          :navigationSwipe="true"
+          :autoplay="true"
+          :breakpoints="[]"
         >
+          <div slot="item" slot-scope="{ item }">
+            <a target="_blank" :href="item.link">
+              <div>
+                <img :src="item.src" />
+                <p class="mt-2">{{ item.title }}</p>
+              </div>
+            </a>
+          </div>
+          <!-- <i
+            slot="previous"
+            class="icon-left-open-big slider-navigation previous"
+          ></i>
+          <i slot="next" class="icon-right-open-big slider-navigation next"></i> -->
+        </carousel>
       </div>
     </section>
   </div>
@@ -33,30 +47,22 @@ export default {
         {
           title: 'The best image1',
           src: './src/assets/images/sports.1.jpg',
-          desc:
-            'Laboris ullamco nostrud qui consectetur aute eiusmod irure aliquip veniam aliquip ut officia laboris amet. Consequat id excepteur mollit dolor fugiat labore. Commodo nulla minim eu commodo reprehenderit veniam eu aliqua aute cillum proident nostrud veniam. Anim voluptate nulla adipisicing in ullamco irure. Velit nostrud ad in duis ex minim nulla cupidatat duis esse nostrud ex ad exercitation. Duis ut do laborum commodo Lorem sunt aliqua labore ex occaecat aliqua nulla id.',
-          other: ``,
+          link: '/',
         },
         {
           title: 'The best image2',
           src: './src/assets/images/sports.2.jpg',
-          desc:
-            'Non fugiat veniam ipsum Lorem anim sit culpa Lorem. Tempor culpa enim adipisicing nostrud exercitation cillum ex dolore dolor mollit irure enim velit commodo. Labore veniam esse incididunt consequat voluptate esse veniam deserunt excepteur. Lorem labore aute labore voluptate. Enim esse eu consectetur ex fugiat aliqua. Quis dolor amet nostrud ea.',
-          other: ``,
+          link: '/',
         },
         {
           title: 'The best image3',
           src: './src/assets/images/sports.3.jpg',
-          desc:
-            'Ex in amet amet ea tempor nisi in commodo ullamco exercitation ea qui eiusmod.',
-          other: ``,
+          link: '/',
         },
         {
           title: 'The best image4',
           src: './src/assets/images/sports.5.jpg',
-          desc:
-            'Sunt amet nisi non non excepteur amet occaecat nulla occaecat deserunt excepteur. Culpa occaecat nulla nulla ea ea. Non occaecat veniam elit in commodo ex esse ipsum occaecat cillum fugiat consequat. Aliquip laborum cupidatat elit in commodo commodo ea. Id esse labore adipisicing proident adipisicing anim sint exercitation nostrud velit. Veniam aliqua magna enim do.',
-          other: ``,
+          link: '/',
         },
       ],
     };
