@@ -29,6 +29,27 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             },
             {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    // this will apply to both plain `.scss` files
+                    // AND `<style lang="scss">` blocks in `.vue` files
+                    'vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                ],
+            },
+            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
