@@ -46,12 +46,7 @@ module.exports = {
                     // this will apply to both plain `.scss` files
                     // AND `<style lang="scss">` blocks in `.vue` files
                     'vue-style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
+                    'css-loader',
                     {
                         loader: 'sass-loader',
                         options: {
@@ -62,27 +57,25 @@ module.exports = {
                         loader: 'sass-resources-loader',
                         options: {
                             // Provide path to the file with resources
-                            resources: path.resolve(__dirname, './node_modules/bulma-carousel/dist/css/bulma-carousel.min.css'),
+                            resources: path.resolve('./node_modules/bulma-carousel/dist/css/bulma-carousel.min.css'),
                             sourceMap: true
                         },
                     },
                 ],
             },
-            {
-                test: /\.scss$/,
-                use: [
-                    'vue-style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            // enable CSS Modules
-                            modules: true,
-                            // customize generated class names
-                            localIdentName: '[local]_[hash:base64:8]'
-                        }
-                    }
-                ]
-            }
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 // enable CSS Modules
+            //                 modules: true,
+            //             }
+            //         }
+            //     ]
+            // }
         ],
     },
     plugins: [

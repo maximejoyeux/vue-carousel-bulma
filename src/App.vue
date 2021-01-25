@@ -51,17 +51,17 @@ export default {
         },
         {
           title: 'The best image2',
-          src: './src/assets/images/sports.2.jpg',
+          src: './src/assets/images/sports.1.jpg',
           link: '/',
         },
         {
           title: 'The best image3',
-          src: './src/assets/images/sports.3.jpg',
+          src: './src/assets/images/sports.1.jpg',
           link: '/',
         },
         {
           title: 'The best image4',
-          src: './src/assets/images/sports.5.jpg',
+          src: './src/assets/images/sports.1.jpg',
           link: '/',
         },
       ],
@@ -72,7 +72,7 @@ export default {
 
 
 <style lang="scss">
-@import '~node_modules/bulma-carousel/dist/css/bulma-carousel.min.css';
+@import 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css';
 
 // CUSTOM CARROUSEL STYLE
 .slider-navigation {
