@@ -1,0 +1,14 @@
+{
+  "name": "vue-carousel-bulma",
+  "version": "1.0.0",
+  "description": "VueJs carousel component build with Bulma",
+  "author": "Maxime Joyeux <maxime.mjoyeux@gmail.com>",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "vue": "^2.6.12"
+  }
+}

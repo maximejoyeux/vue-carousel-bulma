@@ -1,0 +1,40 @@
+Arguments: 
+  /home/maxime/.nvm/versions/node/v10.17.0/bin/node /usr/share/yarn/bin/yarn.js add bulma
+
+PATH: 
+  /home/maxime/.local/bin:/home/maxime/.nvm/versions/node/v10.17.0/bin:/home/maxime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.17.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/maxime/perso/carousel/vue-carousel-bulma/package.json: Unexpected token } in JSON at position 359
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:304:30)
+      at /usr/share/yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "vue-carousel-bulma",
+    "version": "1.0.0",
+    "description": "VueJs carousel component build with Bulma",
+    "author": "Maxime Joyeux <maxime.mjoyeux@gmail.com>",
+    "scripts": {
+      "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+      "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    },
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
