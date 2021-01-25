@@ -3,68 +3,83 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: {
-    main: "./src/main.js",
-  },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader",
-      },
-      {
-        test: /\.css$/,
-        use: [
-            'vue-style-loader',
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: true,
-                }
-            }
-        ]
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => [autoprefixer()],
-            },
-          },
-          "sass-loader",
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new VueLoaderPlugin(),
-    new htmlWebpackPlugin({
-        template: path.resolve(__dirname, "public", "index.html"),
-    }),
-  ],
-  resolve: {
-    alias: {
-      vue$: "vue/dist/vue.runtime.esm.js",
+    entry: {
+        main: "./src/main.js",
     },
-    extensions: ["*", ".js", ".vue", ".json"],
-  },
+    output: {
+        path: path.resolve(__dirname, "dist"),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                },
+            },
+            {
+                test: /\.vue$/,
+                loader: "vue-loader",
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    // this will apply to both plain `.scss` files
+                    // AND `<style lang="scss">` blocks in `.vue` files
+                    'vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            // Provide path to the file with resources
+                            resources: path.resolve(__dirname, './src/Client/sass/utilities/derived-variables.scss'),
+                            sourceMap: true
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    plugins: [
+        new VueLoaderPlugin(),
+        new htmlWebpackPlugin({
+            template: path.resolve(__dirname, "public", "index.html"),
+        }),
+    ],
+    resolve: {
+        alias: {
+            vue$: "vue/dist/vue.runtime.esm.js",
+        },
+        extensions: ["*", ".js", ".vue", ".json"],
+    },
 };
