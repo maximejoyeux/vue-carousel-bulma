@@ -101,5 +101,4 @@ export default {
 .icon-right-open-big {
   font-size: 20px;
 }
-// END CUSTOM CARROUSEL STYLE
 </style>

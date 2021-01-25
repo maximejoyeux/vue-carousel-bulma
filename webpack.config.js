@@ -39,35 +39,42 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader'],
             },
+            // {
+            //     test: /\.scss$/,
+            //     exclude: /node_modules/,
+            //     use: [
+            //         // this will apply to both plain `.scss` files
+            //         // AND `<style lang="scss">` blocks in `.vue` files
+            //         'vue-style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 sourceMap: true
+            //             }
+            //         },
+            //         {
+            //             loader: 'sass-loader',
+            //             options: {
+            //                 sourceMap: true
+            //             }
+            //         },
+            //     ],
+            // },
             {
                 test: /\.scss$/,
-                exclude: /node_modules/,
                 use: [
-                    // this will apply to both plain `.scss` files
-                    // AND `<style lang="scss">` blocks in `.vue` files
-                    'vue-style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-resources-loader',
-                        options: {
-                            // Provide path to the file with resources
-                            resources: path.resolve(__dirname, './src/Client/sass/utilities/derived-variables.scss'),
-                            sourceMap: true
-                        },
-                    },
-                ],
-            },
+                  'vue-style-loader',
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      // enable CSS Modules
+                      modules: true,
+                      // customize generated class names
+                      localIdentName: '[local]_[hash:base64:8]'
+                    }
+                  }
+                ]
+              }
         ],
     },
     plugins: [
