@@ -9,18 +9,25 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
     },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            'node_modules': path.resolve(__dirname, './node_modules/'),
+            '@client': path.resolve(__dirname, './src/Client'),
+        }
+    },
+    devtool: 'source-map',
     module: {
         rules: [
             {
                 test: /\.js$/,
+                loader: 'babel-loader',
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                },
             },
             {
                 test: /\.vue$/,
-                loader: "vue-loader",
+                loader: 'vue-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
@@ -29,15 +36,11 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
+                            // enable CSS Modules
                             modules: true,
                         }
                     }
                 ]
-            },
-            {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.scss$/,
@@ -46,7 +49,12 @@ module.exports = {
                     // this will apply to both plain `.scss` files
                     // AND `<style lang="scss">` blocks in `.vue` files
                     'vue-style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     {
                         loader: 'sass-loader',
                         options: {
@@ -57,25 +65,17 @@ module.exports = {
                         loader: 'sass-resources-loader',
                         options: {
                             // Provide path to the file with resources
-                            resources: path.resolve('./node_modules/bulma-carousel/dist/css/bulma-carousel.min.css'),
+                            resources: path.resolve(__dirname, './src/Client/sass/utilities/derived-variables.scss'),
                             sourceMap: true
                         },
                     },
                 ],
             },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         {
-            //             loader: 'css-loader',
-            //             options: {
-            //                 // enable CSS Modules
-            //                 modules: true,
-            //             }
-            //         }
-            //     ]
-            // }
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     },
     plugins: [
