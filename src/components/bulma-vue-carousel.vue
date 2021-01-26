@@ -148,3 +148,35 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss">
+
+// CUSTOM CARROUSEL STYLE
+.slider-navigation {
+  font-size: 20px;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.slider-navigation.previous {
+  left: -2.5%;
+}
+.slider-navigation.next {
+  right: -2.5%;
+}
+.slider-navigation-previous,
+.slider-navigation-next {
+  display: none;
+}
+// Arrows
+.icon-left-open-big,
+.icon-right-open-big {
+  font-size: 20px;
+}
+</style>
