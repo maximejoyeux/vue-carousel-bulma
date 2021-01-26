@@ -7,7 +7,7 @@
           :items="slides"
           :loop="true"
           :infinite="true"
-          :slidesToShow="isMobile ? 1 : 3"
+          :slidesToShow="3"
           :slidesToScroll="1"
           :pagination="false"
           :navigation="false"
@@ -23,11 +23,11 @@
               </div>
             </a>
           </div>
-          <!-- <i
+          <i
             slot="previous"
             class="icon-left-open-big slider-navigation previous"
           ></i>
-          <i slot="next" class="icon-right-open-big slider-navigation next"></i> -->
+          <i slot="next" class="icon-right-open-big slider-navigation next"></i>
         </carousel>
       </div>
     </section>
@@ -71,3 +71,33 @@ export default {
 };
 </script>
 
+
+<style lang="scss">
+  // CUSTOM CARROUSEL STYLE
+  .slider-navigation {
+    font-size: 20px;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  .slider-navigation.previous {
+    left: -2.5%;
+  }
+  .slider-navigation.next {
+    right: -2.5%;
+  }
+  .slider-navigation-previous,
+  .slider-navigation-next {
+    display: none;
+  }
+  // Arrows
+  .icon-left-open-big,
+  .icon-right-open-big {
+    font-size: 20px;
+  }
+</style>
