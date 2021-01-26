@@ -1,5 +1,6 @@
 <template>
   <div>
+    <link rel="stylesheet">
     <section class="section">
       <div class="container">
         <carousel
@@ -72,7 +73,8 @@ export default {
 
 
 <style lang="scss">
-@import 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css';
+@import "../node_modules/bulma/css/bulma.min.css";
+@import "../node_modules/bulma-carousel/dist/css/bulma-carousel.min.css";
 
 // CUSTOM CARROUSEL STYLE
 .slider-navigation {
