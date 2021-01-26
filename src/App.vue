@@ -1,6 +1,5 @@
 <template>
   <div>
-    <link rel="stylesheet">
     <section class="section">
       <div class="container">
         <carousel
@@ -46,23 +45,23 @@ export default {
     return {
       slides: [
         {
-          title: 'The best image1',
-          src: './src/assets/images/sports.1.jpg',
+          title: 'image 1',
+          src: 'http://placehold.it/400x300',
           link: '/',
         },
         {
-          title: 'The best image2',
-          src: './src/assets/images/sports.1.jpg',
+          title: 'image 2',
+          src: 'http://placehold.it/400x300',
           link: '/',
         },
         {
-          title: 'The best image3',
-          src: './src/assets/images/sports.1.jpg',
+          title: 'image 3',
+          src: 'http://placehold.it/400x300',
           link: '/',
         },
         {
-          title: 'The best image4',
-          src: './src/assets/images/sports.1.jpg',
+          title: 'image 4',
+          src: 'http://placehold.it/400x300',
           link: '/',
         },
       ],
