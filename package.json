@@ -15,6 +15,7 @@
     "bulma-carousel": "^4.0.4",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
+    "node-sass": "^5.0.0",
     "postcss-loader": "^4.2.0",
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
