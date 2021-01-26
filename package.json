@@ -5,7 +5,7 @@
   "author": "Maxime Joyeux <maxime.mjoyeux@gmail.com>",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack serve --mode development"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
